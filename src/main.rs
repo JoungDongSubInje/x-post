@@ -25,6 +25,8 @@ impl XPostingList {
 }   
 
 // 형식에 맞게 1개의 파일로 익스포트
+// html -> 축약되어 나타나는 url 디스크립션을 보여주기 
+// 마크다운 -> 동일하기 url 디스크립션으로 보여주는 짧은 커멘드 생성
 
 
 fn main() {
@@ -38,5 +40,5 @@ fn main() {
     x_posting_list.add(x_post_b);
 
     // 마크다운 혹은 html형식으로 빼내기
-     
+
 }
