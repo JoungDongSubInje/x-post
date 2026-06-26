@@ -9,7 +9,7 @@ license = "MIT"
 include = ["src/*.rs", "Cargo.toml"]
 readme = "README.md"
 repository = "https://github.com/JoungDongSubInje/x-post"
-documentation = ""
-homepage = ""
+documentation = "https://github.com/JoungDongSubInje/x-post/blob/main/README.md"
+homepage = "https://github.com/JoungDongSubInje/x-post/blob/main/README.md"
 
 [dependencies]
