@@ -1,6 +1,15 @@
 [package]
 name = "x-post"
 version = "0.1.0"
+authors = ["JoungDongSub <ehdtjqwjd@naver.com>"]
+description = "A sort of Components"
+keywords = ["koreaOf", "x", "x-post"]
 edition = "2024"
+license = "MIT"
+include = ["src/*.rs", "Cargo.toml"]
+readme = "README.md"
+repository = "https://github.com/JoungDongSubInje/x-post"
+documentation = ""
+homepage = ""
 
 [dependencies]

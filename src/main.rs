@@ -2,9 +2,11 @@
 struct XPosting {
     url: String,
 }
+
+// 에러 핸들링
 impl XPosting {
-    fn new(url: String) -> Self {
-        self { url }
+    fn new(url: String) -> Option<Self> {
+        Some(XPosting { url })
     }
 }
 
@@ -13,32 +15,33 @@ struct XPostingList {
     postings: Vec<XPosting>,
 }
 impl XPostingList {
-    fn new() -> Self {
-        XPostingList {
-            postings: Vec::new(),
-        }
+    pub fn new() -> Self{
+        let postings: Vec<XPosting>= Vec::new();
+        return XPostingList { postings };
     }
-
-    fn add(&mut self, x_post: XPosting) {
+    pub fn add_x_post(&mut self, x_post: XPosting) {
         self.postings.push(x_post);
     }
-}   
+}
 
-// 형식에 맞게 1개의 파일로 익스포트
-// html -> 축약되어 나타나는 url 디스크립션을 보여주기 
-// 마크다운 -> 동일하기 url 디스크립션으로 보여주는 짧은 커멘드 생성
-// 해당 기능은 이용하고 싶은 플랫폼이 지원해야 가능. 그러므로 구연할 수 없는 기능
-
-fn main() {
+#[derive(Debug)]
+struct KoreaXPosting;
+impl KoreaXPosting{
     // X 포스팅 url을 매개변수로 받기
-    let x_post_a= XPosting::new("https://x.com/post/1".to_string());
-    let x_post_b= XPosting::new("https://x.com/post/2".to_string()); 
+    pub fn push_x_posing(url: &'static str) -> XPostingList{
+        let url= url.to_string();
 
-    // 해당 x포스팅들을 익스포트 해서 리스트 만들기 
-    let mut x_posting_list = XPostingList::new();
-    x_posting_list.add(x_post_a);
-    x_posting_list.add(x_post_b);
+        // 해당 x포스팅들을 익스포트 해서 리스트 만들어 데이터 넣기 
+        let mut v_x_posts= XPostingList::new();
+        let option_x_post= XPosting::new(url);
+        
+        let x_post= match option_x_post {
+            Some(XPosting) => XPosting,
+            None => panic!("URL input Err"), 
+        };
 
-    // 마크다운 혹은 html형식으로 빼내기
-
+        v_x_posts.add_x_post(x_post);
+        
+        v_x_posts
+    }
 }
