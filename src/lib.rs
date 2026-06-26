@@ -33,11 +33,11 @@ pub struct XPostingList {
     postings: Vec<XPosting>,
 }
 impl XPostingList {
-    fn new() -> Self{
+    pub fn new() -> Self{
         let postings: Vec<XPosting>= Vec::new();
         return XPostingList { postings };
     }
-    fn add_x_post(&mut self, x_post: XPosting) {
+    pub fn add_x_post(&mut self, x_post: XPosting) {
         self.postings.push(x_post);
     }
 }
@@ -46,10 +46,7 @@ pub struct KoreaXPosting;
 
 impl KoreaXPosting{
     // X 포스팅 url을 매개변수로 받기
-    pub fn push_x_posting(post_query: &'static str) -> XPostingList{
-        // 해당 x포스팅들을 익스포트 해서 리스트 만들어 데이터 넣기 
-        let mut v_x_posts= XPostingList::new();
-        
+    pub fn push_x_posting(mut x_posting_list: XPostingList, post_query: &'static str) -> XPostingList{
         // static base) https://
         // static base) x.com
         // needed) /SpaceX/status/2065415377165726146
@@ -60,8 +57,8 @@ impl KoreaXPosting{
             None => panic!("URL input Err"), 
         };
 
-        v_x_posts.add_x_post(x_post);
+        x_posting_list.add_x_post(x_post);
         
-        v_x_posts
+        x_posting_list
     }
 }
