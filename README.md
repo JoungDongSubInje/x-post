@@ -7,7 +7,12 @@
 use x_post::KoreaXPosting;
 
 fn main(){
-    let v_korea_x_posts= KoreaXPosting::push_x_posing("url");
+
+        // static base) https://
+        // static base) x.com
+        // needed) /SpaceX/status/2065415377165726146
+    let post_query= "/SpaceX/status/2065415377165726146";
+    let v_korea_x_posts= KoreaXPosting::push_x_posing(post_query);
 }
 
 ```
