@@ -16,13 +16,13 @@ impl Url{
 
 
 //  x 포스팅 데이터 스트럭쳐 -> url로 데이터 형성
-struct XPosting {
+pub struct XPosting {
     url: Url,
 }
 
 // 에러 핸들링
 impl XPosting {
-    fn new(str_url: &'static str) -> Option<Self> {
+    pub fn new(str_url: &'static str) -> Option<Self> {
         let url= Url::new(str_url);
         Some(XPosting { url })
     }
