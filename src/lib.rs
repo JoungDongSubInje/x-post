@@ -29,7 +29,7 @@ impl XPosting {
 }
 
 // x포스팅들을 벡터화 함
-struct XPostingList {
+pub struct XPostingList {
     postings: Vec<XPosting>,
 }
 impl XPostingList {
