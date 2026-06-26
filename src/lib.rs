@@ -46,7 +46,7 @@ pub struct KoreaXPosting;
 
 impl KoreaXPosting{
     // X 포스팅 url을 매개변수로 받기
-    pub fn push_x_posing(post_query: &'static str) -> XPostingList{
+    pub fn push_x_posting(post_query: &'static str) -> XPostingList{
         // 해당 x포스팅들을 익스포트 해서 리스트 만들어 데이터 넣기 
         let mut v_x_posts= XPostingList::new();
         
