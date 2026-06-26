@@ -25,7 +25,7 @@ impl XPostingList {
 }
 
 #[derive(Debug)]
-struct KoreaXPosting;
+pub struct KoreaXPosting;
 impl KoreaXPosting{
     // X 포스팅 url을 매개변수로 받기
     pub fn push_x_posing(url: &'static str) -> XPostingList{
