@@ -12,7 +12,10 @@ fn main(){
         // static base) x.com
         // needed) /SpaceX/status/2065415377165726146
     let post_query= "/SpaceX/status/2065415377165726146";
-    let v_korea_x_posts= KoreaXPosting::push_x_posing(post_query);
+    let v_korea_x_posts= x_post::KoreaXPosting::push_x_posting(
+        posts,
+        post_query
+    );
 }
 
 ```
