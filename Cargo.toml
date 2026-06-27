@@ -1,6 +1,6 @@
 [package]
 name = "x-post"
-version = "0.2.4"
+version = "0.2.5"
 authors = ["JoungDongSub <ehdtjqwjd@naver.com>"]
 description = "A sort of Components"
 keywords = ["koreaOf", "x", "x-post"]
