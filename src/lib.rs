@@ -1,8 +1,8 @@
 #[derive(Debug)]
 pub struct Url{
-    base: String,
-    dns: String,
-    another_url: String
+    pub base: String,
+    pub dns: String,
+    pub another_url: String
 }
 impl Url{
     pub fn new(str_url: &'static str) -> Url{
@@ -17,7 +17,7 @@ impl Url{
 
 //  x 포스팅 데이터 스트럭쳐 -> url로 데이터 형성
 pub struct XPosting {
-    url: Url,
+    pub url: Url,
 }
 
 // 에러 핸들링
