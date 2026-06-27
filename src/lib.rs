@@ -1,3 +1,5 @@
+use std::fmt::format;
+
 #[derive(Debug)]
 pub struct Url{
     pub base: String,
@@ -11,6 +13,10 @@ impl Url{
         let another_url= str_url[13..].to_string();
 
         Url { base, dns, another_url }
+    }
+
+    pub fn get_url(&self) -> String{
+        format!("{}{}{}", self.base, self.dns, self.another_url)
     }
 }
 
