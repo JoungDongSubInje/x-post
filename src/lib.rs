@@ -30,7 +30,7 @@ impl XPosting {
 
 // x포스팅들을 벡터화 함
 pub struct XPostingList {
-    postings: Vec<XPosting>,
+    pub postings: Vec<XPosting>,
 }
 impl XPostingList {
     pub fn new() -> Self{
