@@ -1,5 +1,3 @@
-use std::fmt::format;
-
 #[derive(Debug)]
 pub struct Url{
     pub base: String,
@@ -28,43 +26,24 @@ pub struct XPosting {
 
 // 에러 핸들링
 impl XPosting {
-    pub fn new(str_url: &'static str) -> Option<Self> {
+    pub fn new(str_url: &'static str) -> Self {
         let url= Url::new(str_url);
-        Some(XPosting { url })
+        Self { url }
     }
 }
 
 // x포스팅들을 벡터화 함
 pub struct XPostingList {
-    pub postings: Vec<XPosting>,
+    pub postings: Box<Vec<XPosting>>,
 }
 impl XPostingList {
     pub fn new() -> Self{
-        let postings: Vec<XPosting>= Vec::new();
-        return XPostingList { postings };
+        let postings: Box<Vec<XPosting>>= Box::from(Vec::new());
+        return Self { postings };
     }
-    pub fn add_x_post(&mut self, x_post: XPosting) {
-        self.postings.push(x_post);
-    }
-}
-
-pub struct KoreaXPosting;
-
-impl KoreaXPosting{
-    // X 포스팅 url을 매개변수로 받기
-    pub fn push_x_posting(mut x_posting_list: XPostingList, post_query: &'static str) -> XPostingList{
-        // static base) https://
-        // static base) x.com
-        // needed) /SpaceX/status/2065415377165726146
-        let option_x_post= XPosting::new(post_query);
+    pub fn add_x_post(&mut self, x_post: XPosting) -> &Box<Vec<XPosting>> {
+        let _= &self.postings.push(x_post);
         
-        let x_post= match option_x_post {
-            Some(XPosting) => XPosting,
-            None => panic!("URL input Err"), 
-        };
-
-        x_posting_list.add_x_post(x_post);
-        
-        x_posting_list
+        &self.postings
     }
 }

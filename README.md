@@ -5,18 +5,17 @@
 
 ```rust
 
-use x_post::KoreaXPosting;
+use x_post::{ XPosting, XPostingList};
 
 fn main(){
+    // static base) https://
+    // static base) x.com
+    // needed) /SpaceX/status/2065415377165726146
+    let str_url= "/jds_invoker/123456789";
+    let x_post= XPosting::new(str_url);
 
-        // static base) https://
-        // static base) x.com
-        // needed) /SpaceX/status/2065415377165726146
-    let post_query= "/SpaceX/status/2065415377165726146";
-    let v_korea_x_posts= x_post::KoreaXPosting::push_x_posting(
-        posts,
-        post_query
-    );
+    let mut x_posts= XPostingList::new();
+    x_posts.add_x_post(x_post);
 }
 
 ```
